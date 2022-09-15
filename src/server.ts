@@ -36,13 +36,9 @@ app.post("/games/:id/ads", async (request, response) => {
   const ad = await prisma.ad.create({
     data: {
       gameId,
-      name: body.name,
-      yearsPlaying: Number(body.yearsPlaying),
-      discord: body.discord,
-      weekDays: body.weekDays.join(","),
+      ...body,
       hoursStart: convertHoursStringToMinutes(body.hoursStart),
       hoursEnd: convertHoursStringToMinutes(body.hoursEnd),
-      useVoiceChannel: body.useVoiceChannel,
     },
   });
 
@@ -69,7 +65,6 @@ app.get("/games/:id/ads", async (request, response) => {
   return response.json(
     gameAds.map((gameAd) => ({
       ...gameAd,
-      weekDays: gameAd.weekDays.split(",").map(Number),
       hoursStart: convertMinutesToHoursString(gameAd.hoursStart),
       hoursEnd: convertMinutesToHoursString(gameAd.hoursEnd),
     }))

@@ -5,7 +5,7 @@ CREATE TABLE "ads" (
     "name" TEXT NOT NULL,
     "yearsPlaying" INTEGER NOT NULL,
     "discord" TEXT NOT NULL,
-    "weekDays" TEXT NOT NULL,
+    "weekDays" INTEGER[],
     "hoursStart" INTEGER NOT NULL,
     "hoursEnd" INTEGER NOT NULL,
     "useVoiceChannel" BOOLEAN NOT NULL,

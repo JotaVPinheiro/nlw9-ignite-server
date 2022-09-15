@@ -23,7 +23,7 @@ model Ad {
   name            String
   yearsPlaying    Int
   discord         String
-  weekDays        String
+  weekDays        Int[]
   hoursStart      Int
   hoursEnd        Int
   useVoiceChannel Boolean
